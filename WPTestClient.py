@@ -117,3 +117,20 @@ class WPTestClient:
         uri = self.wpSite + (self.wpGetPageByIdTemplate % page_id)
         req = requests.get(uri)
         return req.json()
+
+    def get_comments(self):
+        """
+        :return: JSON response from hitting the GetComments endpoint
+        """
+        uri = self.wpSite + self.wpGetCommentsTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_comment_by_id(self, comment_id):
+        """
+        :param comment_id: Id of the comment we want to fetch
+        :return: JSON response from hitting the GetCommentById endpoint
+        """
+        uri = self.wpSite + (self.wpGetCommentByIdTemplate % comment_id)
+        req = requests.get(uri)
+        return req.json()
