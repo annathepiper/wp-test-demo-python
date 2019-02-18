@@ -4,7 +4,7 @@ from BaseTest import BaseTest
 # Written by Angela Korra'ti
 # Last updated 2/18/2019
 #
-# This test class is for verifying the categories-related endpoints for the Wordpress test site.
+# This test class is for verifying the categories-related endpoints for the WordPress test site.
 
 
 class TestCategories(BaseTest):
@@ -17,7 +17,7 @@ class TestCategories(BaseTest):
         assert req is not None, "GetCategories endpoint returned a null response."
         assert len(req) > 0, "GetCategories endpoint not returning at least one object in JSON output."
 
-    def test_get_post_by_id(self):
+    def test_get_category_by_id(self):
         """
         Verify getting a category by specific ID off the GetCategoryById endpoint
         """
