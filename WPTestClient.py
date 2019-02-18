@@ -66,3 +66,20 @@ class WPTestClient:
         uri = self.wpSite + (self.wpGetPostByIdTemplate % postId)
         req = requests.get(uri)
         return req.json()
+
+    def get_categories(self):
+        """
+        :return: JSON response from hitting the GetCategories endpoint
+        """
+        uri = self.wpSite + self.wpGetCategoriesTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_category_by_id(self, categoryId):
+        """
+        :param categoryId: Id of the post we want to fetch
+        :return: JSON response from hitting the GetCategoryById endpoint
+        """
+        uri = self.wpSite + (self.wpGetCategoryByIdTemplate % categoryId)
+        req = requests.get(uri)
+        return req.json()
