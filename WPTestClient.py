@@ -134,3 +134,20 @@ class WPTestClient:
         uri = self.wpSite + (self.wpGetCommentByIdTemplate % comment_id)
         req = requests.get(uri)
         return req.json()
+
+    def get_taxonomies(self):
+        """
+        :return: JSON response from hitting the GetTaxonomies endpoint
+        """
+        uri = self.wpSite + self.wpGetTaxonomiesTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_taxonomy_by_tag(self, taxonomy_tag):
+        """
+        :param taxonomy_tag: Tag of the taxonomy we want to fetch
+        :return: JSON response from hitting the GetCommentById endpoint
+        """
+        uri = self.wpSite + (self.wpGetTaxonomyByTagTemplate % taxonomy_tag)
+        req = requests.get(uri)
+        return req.json()
