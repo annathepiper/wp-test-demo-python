@@ -4,7 +4,7 @@ from BaseTest import BaseTest
 # Written by Angela Korra'ti
 # Last updated 2/18/2019
 #
-# This test class is for verifying the posts-related endpoints for the Wordpress test site.
+# This test class is for verifying the posts-related endpoints for the WordPress test site.
 
 
 class TestPosts(BaseTest):
