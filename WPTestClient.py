@@ -6,7 +6,7 @@ import requests
 # Last updated 2/18/2019
 #
 # This test class is a helper client for the wp-test-demo-python project. It provides access to the REST API
-# endpoints on the local test Wordpress site.
+# endpoints on the local test WordPress site.
 
 
 class WPTestClient:
@@ -42,7 +42,7 @@ class WPTestClient:
     def __init__(self, host, protocol):
         """
         Init function for the class
-        :param host: Host for the Wordpress REST API endpoints
+        :param host: Host for the WordPress REST API endpoints
         :param protocol: Protocol for hitting the host
         """
         self.wp_lib = WPTestLib.WPTestLib()
@@ -58,12 +58,12 @@ class WPTestClient:
         req = requests.get(uri)
         return req.json()
 
-    def get_post_by_id(self, postId):
+    def get_post_by_id(self, post_id):
         """
-        :param postId: Id of the post we want to fetch
+        :param post_id: Id of the post we want to fetch
         :return: JSON response from hitting the GetPostById endpoint
         """
-        uri = self.wpSite + (self.wpGetPostByIdTemplate % postId)
+        uri = self.wpSite + (self.wpGetPostByIdTemplate % post_id)
         req = requests.get(uri)
         return req.json()
 
@@ -75,11 +75,28 @@ class WPTestClient:
         req = requests.get(uri)
         return req.json()
 
-    def get_category_by_id(self, categoryId):
+    def get_category_by_id(self, category_id):
         """
-        :param categoryId: Id of the post we want to fetch
+        :param category_id: Id of the post we want to fetch
         :return: JSON response from hitting the GetCategoryById endpoint
         """
-        uri = self.wpSite + (self.wpGetCategoryByIdTemplate % categoryId)
+        uri = self.wpSite + (self.wpGetCategoryByIdTemplate % category_id)
+        req = requests.get(uri)
+        return req.json()
+
+    def get_tags(self):
+        """
+        :return: JSON response from hitting the GetTags endpoint
+        """
+        uri = self.wpSite + self.wpGetTagsTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_tag_by_id(self, tag_id):
+        """
+        :param tag_id: Id of the tag we want to fetch
+        :return: JSON response from hitting the GetTagById endpoint
+        """
+        uri = self.wpSite + (self.wpGetTagByIdTemplate % tag_id)
         req = requests.get(uri)
         return req.json()
