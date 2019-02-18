@@ -100,3 +100,20 @@ class WPTestClient:
         uri = self.wpSite + (self.wpGetTagByIdTemplate % tag_id)
         req = requests.get(uri)
         return req.json()
+
+    def get_pages(self):
+        """
+        :return: JSON response from hitting the GetPages endpoint
+        """
+        uri = self.wpSite + self.wpGetPagesTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_page_by_id(self, page_id):
+        """
+        :param page_id: Id of the page we want to fetch
+        :return: JSON response from hitting the GetPageById endpoint
+        """
+        uri = self.wpSite + (self.wpGetPageByIdTemplate % page_id)
+        req = requests.get(uri)
+        return req.json()
