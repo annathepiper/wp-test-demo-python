@@ -146,7 +146,7 @@ class WPTestClient:
     def get_taxonomy_by_tag(self, taxonomy_tag):
         """
         :param taxonomy_tag: Tag of the taxonomy we want to fetch
-        :return: JSON response from hitting the GetCommentById endpoint
+        :return: JSON response from hitting the GetTaxonomyByTag endpoint
         """
         uri = self.wpSite + (self.wpGetTaxonomyByTagTemplate % taxonomy_tag)
         req = requests.get(uri)
@@ -163,8 +163,25 @@ class WPTestClient:
     def get_media_by_id(self, media_id):
         """
         :param media_id: ID of the media item we want to fetch
-        :return: JSON response from hitting the GetCommentById endpoint
+        :return: JSON response from hitting the GetMediaById endpoint
         """
         uri = self.wpSite + (self.wpGetMediaByIdTemplate % media_id)
+        req = requests.get(uri)
+        return req.json()
+
+    def get_users(self):
+        """
+        :return: JSON response from hitting the GetUsers endpoint
+        """
+        uri = self.wpSite + self.wpGetUsersTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_user_by_id(self, user_id):
+        """
+        :param user_id: ID of the user we want to fetch
+        :return: JSON response from hitting the GetUserById endpoint
+        """
+        uri = self.wpSite + (self.wpGetUserByIdTemplate % user_id)
         req = requests.get(uri)
         return req.json()
