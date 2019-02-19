@@ -151,3 +151,20 @@ class WPTestClient:
         uri = self.wpSite + (self.wpGetTaxonomyByTagTemplate % taxonomy_tag)
         req = requests.get(uri)
         return req.json()
+
+    def get_media(self):
+        """
+        :return: JSON response from hitting the GetMedia endpoint
+        """
+        uri = self.wpSite + self.wpGetMediaTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_media_by_id(self, media_id):
+        """
+        :param media_id: ID of the media item we want to fetch
+        :return: JSON response from hitting the GetCommentById endpoint
+        """
+        uri = self.wpSite + (self.wpGetMediaByIdTemplate % media_id)
+        req = requests.get(uri)
+        return req.json()
