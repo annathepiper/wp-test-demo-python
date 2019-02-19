@@ -185,3 +185,37 @@ class WPTestClient:
         uri = self.wpSite + (self.wpGetUserByIdTemplate % user_id)
         req = requests.get(uri)
         return req.json()
+
+    def get_post_types(self):
+        """
+        :return: JSON response from hitting the GetPostTypes endpoint
+        """
+        uri = self.wpSite + self.wpGetPostTypesTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_post_type_by_tag(self, post_type_tag):
+        """
+        :param post_type_tag: Tag of the post type we want to fetch
+        :return: JSON response from hitting the GetPostTypeByTag endpoint
+        """
+        uri = self.wpSite + (self.wpGetPostTypeByTagTemplate % post_type_tag)
+        req = requests.get(uri)
+        return req.json()
+
+    def get_post_statuses(self):
+        """
+        :return: JSON response from hitting the GetPostStatuses endpoint
+        """
+        uri = self.wpSite + self.wpGetPostStatusesTemplate
+        req = requests.get(uri)
+        return req.json()
+
+    def get_post_status_by_tag(self, post_status_tag):
+        """
+        :param post_status_tag: Tag of the post status we want to fetch
+        :return: JSON response from hitting the GetPostStatusByTag endpoint
+        """
+        uri = self.wpSite + (self.wpGetPostStatusByTagTemplate % post_status_tag)
+        req = requests.get(uri)
+        return req.json()
