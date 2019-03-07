@@ -2,7 +2,7 @@ from BaseTest import BaseTest
 
 # TestMedia
 # Written by Angela Korra'ti
-# Last updated 2/18/2019
+# Last updated 3/6/2019
 #
 # This test class is for verifying the media-related endpoints for the WordPress test site.
 
@@ -21,7 +21,11 @@ class TestMedia(BaseTest):
         """
         Verify getting a media item by specific ID off the GetMediaById endpoint
         """
-        req = self.wp_tc.get_media_by_id(self.wp_lib.getMediaId)
+        # We need to do an OS check to determine which media ID to use
+        if self.platform == 'Linux':
+            req = self.wp_tc.get_media_by_id(self.wp_lib.getMediaId)
+        elif self.platform == 'Windows':
+            req = self.wp_tc.get_media_by_id(self.wp_lib.getMediaIdWindows)
         assert req is not None, "GetMediaById endpoint returned a null object. Media item may not exist."
         assert req['id'] == self.wp_lib.getMediaId, "GetMediaById endpoint didn't return correct ID number."
         assert req['title']['rendered'] == self.wp_lib.getMediaTitle,\
