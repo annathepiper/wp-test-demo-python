@@ -1,9 +1,10 @@
 import WPTestLib
 import WPTestClient
+import platform
 
 # BaseTest
 # Written by Angela Korra'ti
-# Last updated 2/18/2019
+# Last updated 3/6/2019
 #
 # This is the base test class for the other ones in the suite.
 
@@ -11,6 +12,7 @@ import WPTestClient
 class BaseTest:
     wp_lib = None
     wp_tc = None
+    platform = platform.system()
 
     def __init__(self):
         """
