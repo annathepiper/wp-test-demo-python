@@ -1,8 +1,9 @@
 # WPTestLib
 # Written by Angela Korra'ti
-# Last updated 2/18/19
+# Last updated 3/6/19
 #
 # This is a helper class providing access to assorted strings for IDs and such for configuring and running tests.
+
 
 class WPTestLib:
     protocol = "http"
@@ -19,8 +20,9 @@ class WPTestLib:
     getCommentContent = "This is a comment for testing purposes, used by my test automation suite."
     getTaxonomyTag = "category"
     getTaxonomyName = "Categories"
-    getMediaId = 25550
-    getMediaTitle = "cropped-faerie-blood-epub-cover1.jpg"
+    getMediaId = 25514
+    getMediaIdWindows = 25550
+    getMediaTitle = "cropped-faerie-blood-epub-cover.jpg"
     getUserId = 1
     getUserName = "annathepiper"
     getPostTypeTag = "post"
