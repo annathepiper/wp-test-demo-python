@@ -1,8 +1,9 @@
 # WPTestLib
 # Written by Angela Korra'ti
-# Last updated 4/9/19
+# Last updated 4/9/2019
 #
-# This is a helper class providing access to assorted strings for IDs and such for configuring and running tests.
+# This is a helper class providing access to assorted strings for IDs and such for configuring and running tests,
+# as well as useful helper methods.
 
 
 class WPTestLib:
@@ -21,7 +22,7 @@ class WPTestLib:
     getTaxonomyTag = "category"
     getTaxonomyName = "Categories"
     getMediaId = 25514
-    getMediaIdWindows = 25550
+    getMediaIdWindows = 25549
     getMediaTitle = "cropped-faerie-blood-epub-cover.jpg"
     getUserId = 1
     getUserName = "annathepiper"
@@ -51,3 +52,31 @@ class WPTestLib:
     getPostTypeNonExistentCode = "rest_type_invalid"
     getPostStatusNonExistentMessage = "Invalid status."
     getPostStatusNonExistentCode = "rest_status_invalid"
+
+    def verify_response_item_does_not_exist(self, req, error_code, error_message):
+        """
+        Helper method to take a JSON response object, expected error code, and expected error message, and make sure
+        the response contains the appropriate data to reflect that the tested-for item does not exist.
+        :param req: response from previously made request
+        :param error_code: expected error code
+        :param error_message: expected error message
+        :return: n/a
+        """
+        assert req['code'] == error_code, "Target endpoint thinks target item ID actually exists."
+        assert req['message'] == error_message, "Target endpoint didn't throw the expected error message."
+        assert req['data'] is not None, "Target endpoint didn't include data object in response."
+        assert req['data']['status'] == 404, "Target endpoint didn't return expected error code."
+
+    def verify_response_item_is_invalid(self, req, error_code, error_message):
+        """
+        Helper method to take a JSON response object, expected error code, and expected error message, and make sure
+        the response contains the appropriate data to reflect that the tested-for item is invalid.
+        :param req: response from previously made request
+        :param error_code: expected error code
+        :param error_message: expected error message
+        :return: n/a
+        """
+        assert req['code'] == error_code, "Target endpoint thinks target item ID is actually valid."
+        assert req['message'] == error_message, "Target endpoint didn't throw the expected error message."
+        assert req['data'] is not None, "Target endpoint didn't include data object in response."
+        assert req['data']['status'] == 404, "Target endpoint didn't return expected error code."
