@@ -1,6 +1,6 @@
 # WPTestLib
 # Written by Angela Korra'ti
-# Last updated 3/6/19
+# Last updated 4/9/19
 #
 # This is a helper class providing access to assorted strings for IDs and such for configuring and running tests.
 
@@ -29,3 +29,25 @@ class WPTestLib:
     getPostTypeName = "Posts"
     getPostStatusTag = "publish"
     getPostStatusName = "Published"
+
+    # These are string specifically pertinent to negative test cases
+    getNonExistentId = 999999999
+    getNonExistentMessage = "Invalid post ID."
+    getNonExistentCode = "rest_post_invalid_id"
+    getNonExistentTag = "pancakes"
+    getInvalidId = "aaaaaaa"
+    getInvalidMessage = "No route was found matching the URL and request method"
+    getInvalidCode = "rest_no_route"
+    getInvalidTag = "pancakes(*)( @!!!"
+    getTermNonExistentMessage = "Term does not exist."
+    getTermNonExistentCode = "rest_term_invalid"
+    getCommentNonExistentMessage = "Invalid comment ID."
+    getCommentNonExistentCode = "rest_comment_invalid_id"
+    getTaxonomyNonExistentMessage = "Invalid taxonomy."
+    getTaxonomyNonExistentCode = "rest_taxonomy_invalid"
+    getUserNonExistentMessage = "Invalid user ID."
+    getUserNonExistentCode = "rest_user_invalid_id"
+    getPostTypeNonExistentMessage = "Invalid post type."
+    getPostTypeNonExistentCode = "rest_type_invalid"
+    getPostStatusNonExistentMessage = "Invalid status."
+    getPostStatusNonExistentCode = "rest_status_invalid"
