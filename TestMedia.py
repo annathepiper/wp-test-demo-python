@@ -23,10 +23,11 @@ class TestMedia(BaseTest):
         """
         # We need to do an OS check to determine which media ID to use
         if self.platform == 'Linux':
-            req = self.wp_tc.get_media_by_id(self.wp_lib.getMediaId)
+            targetId = self.wp_lib.getMediaId
         elif self.platform == 'Windows':
-            req = self.wp_tc.get_media_by_id(self.wp_lib.getMediaIdWindows)
+            targetId = self.wp_lib.getMediaIdWindows
+        req = self.wp_tc.get_media_by_id(targetId)
         assert req is not None, "GetMediaById endpoint returned a null object. Media item may not exist."
-        assert req['id'] == self.wp_lib.getMediaId, "GetMediaById endpoint didn't return correct ID number."
+        assert req['id'] == targetId, "GetMediaById endpoint didn't return correct ID number."
         assert req['title']['rendered'] == self.wp_lib.getMediaTitle,\
             "Retrieved media from GetMediaById endpoint does not have expected title."
