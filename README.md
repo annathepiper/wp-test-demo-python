@@ -21,6 +21,23 @@ Overall, I'm setting up this suite in Python similarly to how I wrote similar te
 * Use of a helper class to set test-specific strings like ID numbers, titles, and names
 * Using Nose functionality to run the test suite, and to annotate test methods
 * Testing against a site running as a Docker container
+* Negative test cases
+
+## Running the code yourself
+
+If you'd like to try running this suite yourself, you will need to do the following:
+
+1. Install PyCharm if you don't have it already. (Or your Python IDE of choice; maybe you like Eclipse?)
+2. Install Docker if you don't have it already.
+3. Install git if you don't have it already.
+4. Edit your local hosts file to add aliases for wordpress.local to 127.0.0.1 (and phpmyadmin.local if you're using my PHPMyAdmin container).
+5. Create a local Wordpress instance with Docker (see my misc-configs repo for a wp-docker-compose.yml you can use as a reference, and modify as appropriate for your testing).
+6. Configure your local Wordpress with whatever test data you want to use. This may involve importing data of your own in from another site, or otherwise generating test posts, pages, etc. via whatever means you have available.
+7. Check out this repo on your own system.
+8. Import the project into your PyCharm (or other IDE of choice).
+9. Open the WPTestLib.py file and edit its strings as appropriate to reflect what test data you're using.
+10. If you use my Postman collection and environment, you should also tweak the environment settings to reflect your test data. The environment file should match what you put into the WPTestLib.py file in PyCharm.
+11. To run the tests, you have a few options. You can set up a configuration in PyCharm to use nose as your test runner, and run the tests directly in PyCharm. Or, if you have nose independently installed, you can go to the directory where you've checked out the code and run it from there. (This latter option is my current preference, as I've observed that running the tests within PyCharm gives me garbled output. This is apparently a known issue; I've seen other users reporting this when I went googling for information about it.)
 
 ## Why Nose?
 I'm aware that the original version of Nose is in maintenance mode, and its docs do encourage people to use Nose2 instead. For the time being, though, I'm using Nose as that's what I'm most immediately familiar with. Time permitting, I'll be updating this suite to use Nose2.
