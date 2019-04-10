@@ -2,7 +2,7 @@ from BaseTest import BaseTest
 
 # TestPostStatuses
 # Written by Angela Korra'ti
-# Last updated 2/18/2019
+# Last updated 4/10/2019
 #
 # This test class is for verifying the post-status-related endpoints for the WordPress test site.
 
@@ -26,3 +26,35 @@ class TestPostStatuses(BaseTest):
         assert req['slug'] == self.wp_lib.getPostStatusTag, "GetPostStatusByTag endpoint didn't return correct slug."
         assert req['name'] == self.wp_lib.getPostStatusName,\
             "Retrieved post status from GetPostStatusByTag endpoint does not have expected name."
+
+    def test_get_post_status_tag_that_does_not_exist(self):
+        """
+        Verify that the Get Post Status by Tag endpoint exhibits expected error behavior for a post status tag that
+        doesn't exist
+        """
+        req = self.wp_tc.get_post_status_by_tag(self.wp_lib.getNonExistentTag)
+        self.wp_lib.verify_response_item_does_not_exist(req, self.wp_lib.getPostStatusNonExistentCode,
+                                                        self.wp_lib.getPostStatusNonExistentMessage)
+
+    def test_get_post_status_tag_bad_tag(self):
+        """
+        Verify that the Get Post Status by Tag endpoint throws expected error for an invalid post status tag
+        """
+        req = self.wp_tc.get_post_status_by_tag(self.wp_lib.getInvalidTag)
+        self.wp_lib.verify_response_item_is_invalid(req, self.wp_lib.getInvalidCode, self.wp_lib.getInvalidMessage)
+
+    def test_get_post_status_tag_max_size(self):
+        """
+        Verify that the Get Post Status by Tag endpoint throws expected error for a post status tag using sys.maxsize
+        """
+        req = self.wp_tc.get_post_status_by_tag(str(self.maxsize))
+        self.wp_lib.verify_response_item_does_not_exist(req, self.wp_lib.getPostStatusNonExistentCode,
+                                                        self.wp_lib.getPostStatusNonExistentMessage)
+
+    def test_get_post_status_tag_min_size(self):
+        """
+        Verify that the Get Post Status by Tag endpoint throws expected error for a post status tag using -sys.maxsize
+        """
+        req = self.wp_tc.get_post_status_by_tag(str(self.minsize))
+        self.wp_lib.verify_response_item_does_not_exist(req, self.wp_lib.getPostStatusNonExistentCode,
+                                                        self.wp_lib.getPostStatusNonExistentMessage)
