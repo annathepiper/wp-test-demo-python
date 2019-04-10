@@ -1,10 +1,11 @@
 import WPTestLib
 import WPTestClient
 import platform
+import sys
 
 # BaseTest
 # Written by Angela Korra'ti
-# Last updated 3/6/2019
+# Last updated 4/10/2019
 #
 # This is the base test class for the other ones in the suite.
 
@@ -13,6 +14,8 @@ class BaseTest:
     wp_lib = None
     wp_tc = None
     platform = platform.system()
+    maxsize = sys.maxsize
+    minsize = -sys.maxsize
 
     def __init__(self):
         """
