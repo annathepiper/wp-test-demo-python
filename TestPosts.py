@@ -1,9 +1,8 @@
 from BaseTest import BaseTest
-import sys
 
 # TestPosts
 # Written by Angela Korra'ti
-# Last updated 4/9/2019
+# Last updated 4/10/2019
 #
 # This test class is for verifying the posts-related endpoints for the WordPress test site.
 
@@ -47,14 +46,13 @@ class TestPosts(BaseTest):
         """
         Verify that the Get Post by Id endpoint throws expected error for a post ID using sys.maxsize
         """
-        req = self.wp_tc.get_post_by_id(str(sys.maxsize))
+        req = self.wp_tc.get_post_by_id(str(self.maxsize))
         self.wp_lib.verify_response_item_does_not_exist(req, self.wp_lib.getNonExistentCode,
                                                         self.wp_lib.getNonExistentMessage)
 
     def test_get_post_id_min_size(self):
         """
         Verify that the Get Post by Id endpoint throws expected error for a post ID using -sys.maxsize
-        :return:
         """
-        req = self.wp_tc.get_post_by_id(str(-sys.maxsize))
+        req = self.wp_tc.get_post_by_id(str(self.minsize))
         self.wp_lib.verify_response_item_is_invalid(req, self.wp_lib.getInvalidCode, self.wp_lib.getInvalidMessage)
