@@ -21,9 +21,9 @@ class WPTestLib:
     getCommentContent = "This is a comment for testing purposes, used by my test automation suite."
     getTaxonomyTag = "category"
     getTaxonomyName = "Categories"
-    getMediaId = 25514
+    getMediaId = 25399
     getMediaIdWindows = 25549
-    getMediaTitle = "cropped-faerie-blood-epub-cover.jpg"
+    getMediaTitle = "Faerie Blood"
     getUserId = 1
     getUserName = "annathepiper"
     getPostTypeTag = "post"
