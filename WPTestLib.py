@@ -22,7 +22,7 @@ class WPTestLib:
     getTaxonomyTag = "category"
     getTaxonomyName = "Categories"
     getMediaId = 25399
-    getMediaIdWindows = 25549
+    getMediaIdWindows = 14
     getMediaTitle = "Faerie Blood"
     getUserId = 1
     getUserName = "annathepiper"
