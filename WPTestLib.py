@@ -1,6 +1,6 @@
 # WPTestLib
 # Written by Angela Korra'ti
-# Last updated 4/9/2019
+# Last updated 7/10/2023
 #
 # This is a helper class providing access to assorted strings for IDs and such for configuring and running tests,
 # as well as useful helper methods.
@@ -17,12 +17,12 @@ class WPTestLib:
     getTagName = "administrivia"
     getPageId = 1087
     getPageTitle = "Faerie Blood"
-    getCommentId = 2
+    getCommentId = 3
     getCommentContent = "This is a comment for testing purposes, used by my test automation suite."
     getTaxonomyTag = "category"
     getTaxonomyName = "Categories"
-    getMediaId = 25399
-    getMediaIdWindows = 14
+    getMediaId = 25526
+    getMediaIdWindows = 25526
     getMediaTitle = "Faerie Blood"
     getUserId = 1
     getUserName = "annathepiper"
@@ -37,7 +37,7 @@ class WPTestLib:
     getNonExistentCode = "rest_post_invalid_id"
     getNonExistentTag = "pancakes"
     getInvalidId = "aaaaaaa"
-    getInvalidMessage = "No route was found matching the URL and request method"
+    getInvalidMessage = "No route was found matching the URL and request method."
     getInvalidCode = "rest_no_route"
     getInvalidTag = "pancakes(*)( @!!!"
     getTermNonExistentMessage = "Term does not exist."
