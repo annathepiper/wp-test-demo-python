@@ -2,7 +2,7 @@ from BaseTest import BaseTest
 
 # TestCategories
 # Written by Angela Korra'ti
-# Last updated 4/10/2019
+# Last updated 7/10/2023
 #
 # This test class is for verifying the categories-related endpoints for the WordPress test site.
 
